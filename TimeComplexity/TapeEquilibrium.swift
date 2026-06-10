@@ -10,13 +10,14 @@ public func solution(_ A : inout [Int]) -> Int {
     // space O(1)
     let sum = A.reduce(0, +)
     var leftSum = 0
-    var diff = 0
-    var minValue = sum
+    var minValue = Int.max
 
     // time O(N)
-    for num in A {
-        leftSum += num
-        diff = abs(sum - leftSum * 2)
+    // 0 < P < N のため
+    for i in 0 ..< (A.count - 1) {
+        leftSum += A[i]
+        let rightSum = sum - leftSum
+        let diff = abs(leftSum - rightSum)
         minValue = min(diff, minValue)
     }
 

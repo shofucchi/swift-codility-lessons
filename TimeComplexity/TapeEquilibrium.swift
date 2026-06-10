@@ -7,21 +7,18 @@ import Glibc
 public func solution(_ A : inout [Int]) -> Int {
     // Implement your solution here
 
-    // space O(N)
-    let total = A.reduce(0, +)
-    var head = 0
-    var sum = total
+    // space O(1)
+    let sum = A.reduce(0, +)
+    var leftSum = 0
+    var diff = 0
+    var minValue = sum
 
     // time O(N)
     for num in A {
-        head += num
-        let diff = total - head * 2
-        guard diff >= 0 else { continue }
-        sum -= diff
-        if sum == 0 {
-            return diff
-        }
+        leftSum += num
+        diff = abs(sum - leftSum * 2)
+        minValue = min(diff, minValue)
     }
 
-    return 0
+    return minValue
 }

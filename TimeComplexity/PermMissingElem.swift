@@ -9,13 +9,14 @@ public func solution(_ A : inout [Int]) -> Int {
 
     // space O(N)
     let set = Set(A)
-    var count = 0
+    var count = 1
 
     // time O(N)
-    for _ in 1...A.count {
+    for _ in A.indices {
+        if !set.contains(count) {
+            return count
+        }
         count += 1
-        guard !set.contains(count) else { continue }
-        return count
     }
 
     return count

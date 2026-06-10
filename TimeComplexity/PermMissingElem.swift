@@ -7,18 +7,13 @@ import Glibc
 public func solution(_ A : inout [Int]) -> Int {
     // Implement your solution here
 
-    // space O(N)
-    let set = Set(A)
-    var count = 1
+    // space O(1)
+    let n = A.count + 1
+    let expectSum = n * (n + 1) / 2
 
     // time O(N)
-    for _ in A.indices {
-        if !set.contains(count) {
-            return count
-        }
-        count += 1
-    }
+    let actualSum = A.reduce(0, +)
 
-    return count
+    return expectSum - actualSum
 }
 

@@ -7,14 +7,10 @@ import Glibc
 public func solution(_ X : Int, _ Y : Int, _ D : Int) -> Int {
     // Implement your solution here
 
-    var position = X
-    var count = 0
+    // time O(1)
+    // space O(1)
+    let left = Y - X
 
-    // time O(N)
-    while Y > position {
-        position += D
-        count += 1
-    }
-
-    return count
+    // 切り上げ除算
+    return (left + D - 1) / D
 }

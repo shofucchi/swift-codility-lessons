@@ -111,6 +111,7 @@ https://docs.swift.org/swift-book/documentation/the-swift-programming-language/
 
 - FrogJmp
 - PermMissingElem
+- TapeEquilibrium
 
 学習内容
 
@@ -119,7 +120,6 @@ https://docs.swift.org/swift-book/documentation/the-swift-programming-language/
 
 ### Prefix Sums
 
-- TapeEquilibrium
 - PassingCars
 
 学習内容

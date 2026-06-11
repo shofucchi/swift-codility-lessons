@@ -7,16 +7,18 @@ import Glibc
 public func solution(_ S : inout String) -> Int {
     // Implement your solution here
 
-    var startSymbolCount = 0
-    var endSymbolCount = 0
+    // space O(1)
+    // time O(N)
+    
+    var count = 0
 
-    for symbol in S {
-        if symbol == "(" {
-            startSymbolCount += 1
-        } else {
-            endSymbolCount += 1
+    for char in S {
+        count += char == "(" ? 1 : -1
+
+        if count < 0 {
+            return 0
         }
     }
 
-    return startSymbolCount == endSymbolCount ? 1 : 0
+    return count == 0 ? 1 : 0
 }
